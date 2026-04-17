@@ -1,9 +1,7 @@
 @echo off
 REM ================================================================
-REM  Push kol-dorot to GitHub
-REM  Usage: double-click this file, or run from cmd
-REM  Expects: GitHub repo https://github.com/Eladshi1326/kol-dorot
-REM           (create empty repo on github.com/new first — no README)
+REM  Kol Dorot -- push to GitHub
+REM  (single-file: works for first push, re-push, and fixes)
 REM ================================================================
 
 setlocal
@@ -12,84 +10,82 @@ cd /d "%~dp0"
 
 echo.
 echo ================================================================
-echo   Kol Dorot -- GitHub push
+echo   Kol Dorot -- push to GitHub
 echo ================================================================
 echo.
 
-REM --- [0/6] Verify git is installed ---
+REM --- [0/4] Verify git ---
 where git >nul 2>nul
 if errorlevel 1 (
-    echo [!] git is not installed or not in PATH.
-    echo     Install from: https://git-scm.com/download/win
-    echo.
+    echo [!] git is not installed. Get it from https://git-scm.com/download/win
     pause
     exit /b 1
 )
 
-REM --- [1/6] Start fresh: remove any corrupted .git ---
-if exist ".git" (
-    echo [1/6] Removing existing .git folder for a clean start...
-    rmdir /s /q .git
-    if exist ".git" (
-        echo [!] Could not remove .git folder. Close VS Code / editors and retry.
+REM --- [1/4] If no .git yet, initialize from scratch ---
+if not exist ".git" (
+    echo [1/4] Initializing fresh git repo...
+    git init -b main >nul
+    git config user.name "Eladshi1326"
+    git config user.email "eladshi1326@gmail.com"
+    git remote add origin https://github.com/Eladshi1326/kol-dorot.git
+) else (
+    echo [1/4] Existing git repo found -- keeping history.
+    REM Make sure remote is set correctly
+    git remote set-url origin https://github.com/Eladshi1326/kol-dorot.git 2>nul
+    if errorlevel 1 git remote add origin https://github.com/Eladshi1326/kol-dorot.git
+)
+
+REM Clean up any leftover locks from previous runs
+if exist ".git\HEAD.lock" del /q ".git\HEAD.lock" 2>nul
+if exist ".git\index.lock" del /q ".git\index.lock" 2>nul
+
+REM --- [2/4] Stage all changes ---
+echo [2/4] Staging files...
+git add .
+
+REM --- [3/4] Commit if there are changes ---
+git diff --cached --quiet
+if errorlevel 1 (
+    echo [3/4] Creating commit...
+    git commit -m "Update Kol Dorot site" >nul
+    if errorlevel 1 (
+        echo [!] commit failed.
         pause
         exit /b 1
     )
+) else (
+    echo [3/4] No new changes to commit -- pushing existing history.
 )
 
-echo [2/6] Initializing fresh git repo on branch 'main'...
-git init -b main
-if errorlevel 1 (
-    echo [!] git init failed.
-    pause
-    exit /b 1
-)
-
-echo [3/6] Configuring local git identity...
-git config user.name "Eladshi1326"
-git config user.email "eladshi1326@gmail.com"
-
-echo [4/6] Staging files...
-git add .
-if errorlevel 1 (
-    echo [!] git add failed.
-    pause
-    exit /b 1
-)
-
-echo [5/6] Creating initial commit...
-git commit -m "Initial commit: Kol Dorot Hebrew RTL editorial landing page"
-if errorlevel 1 (
-    echo [!] git commit failed. Check the output above.
-    pause
-    exit /b 1
-)
-
-echo [6/6] Adding remote and pushing to GitHub...
-git remote add origin https://github.com/Eladshi1326/kol-dorot.git
-git push -u origin main
-if errorlevel 1 (
-    echo.
-    echo [!] Push failed. Common causes:
-    echo     1. Repo does not exist yet -- create it at https://github.com/new
-    echo        with the exact name: kol-dorot  (empty, no README)
-    echo     2. Authentication -- make sure GitHub CLI or Git Credential Manager is signed in.
-    echo.
-    pause
-    exit /b 1
-)
+REM --- [4/4] Push (force to overwrite any divergent history) ---
+echo [4/4] Pushing to GitHub...
+git push --force origin main
+set PUSH_RESULT=%ERRORLEVEL%
 
 echo.
-echo ================================================================
-echo  SUCCESS! Your code is on GitHub.
-echo  https://github.com/Eladshi1326/kol-dorot
-echo ================================================================
-echo.
-echo  Next: deploy on Netlify --
-echo    1. Go to https://app.netlify.com
-echo    2. Add new site -- Import from Git
-echo    3. Select the repo 'kol-dorot'
-echo    4. netlify.toml is already configured -- just click Deploy.
+if %PUSH_RESULT% EQU 0 (
+    echo ================================================================
+    echo.
+    echo                  *** SUCCESS! ***
+    echo.
+    echo     The site is now live on GitHub:
+    echo     https://github.com/Eladshi1326/kol-dorot
+    echo.
+    echo     Netlify will automatically detect the new commit and
+    echo     rebuild within 30-60 seconds.
+    echo     Watch: https://app.netlify.com
+    echo.
+    echo ================================================================
+) else (
+    echo ================================================================
+    echo   [!] Push failed.
+    echo       1. Make sure the repo exists at:
+    echo          https://github.com/Eladshi1326/kol-dorot
+    echo       2. Check GitHub authentication: gh auth status
+    echo ================================================================
+)
+
 echo.
 pause
 endlocal
