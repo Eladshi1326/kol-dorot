@@ -6,6 +6,11 @@
   color-scheme: light dark;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html { scroll-behavior: smooth; }
 
 body {

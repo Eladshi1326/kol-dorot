@@ -81,11 +81,4 @@ if %PUSH_RESULT% EQU 0 (
     echo ================================================================
     echo   [!] Push failed.
     echo       1. Make sure the repo exists at:
-    echo          https://github.com/Eladshi1326/kol-dorot
-    echo       2. Check GitHub authentication: gh auth status
-    echo ================================================================
-)
-
-echo.
-pause
-endlocal
+    echo          https://github.com/Eladshi1326/kol

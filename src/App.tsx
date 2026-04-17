@@ -15,10 +15,22 @@ import NotFound from './pages/NotFound'
 export default function App() {
   const location = useLocation()
 
-  // Scroll to top on route change
+  // Scroll to top or to hash target on route change
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [location.pathname])
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' })
+        }
+      })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
+  }, [location.pathname, location.hash])
 
   // Scroll reveal
   useEffect(() => {

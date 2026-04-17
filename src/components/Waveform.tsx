@@ -20,7 +20,7 @@ function seeded(seed: number, n: number) {
 }
 
 export default function Waveform({
-  bars = 64,
+  bars = 40,
   height = 56,
   playing = false,
   className = '',
