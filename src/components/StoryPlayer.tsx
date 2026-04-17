@@ -13,23 +13,23 @@ export default function StoryPlayer({ story, index = 0 }: { story: Story; index?
   const [playing, setPlaying] = useState(false)
 
   return (
-    <article className="card-surface p-7 md:p-10 reveal" style={{ transitionDelay: `${index * 60}ms` }}>
-      <div className="flex items-start justify-between gap-6 mb-6">
-        <div>
+    <article className="card-surface p-5 sm:p-7 md:p-10 rounded-xl md:rounded-2xl reveal" style={{ transitionDelay: `${index * 60}ms` }}>
+      <div className="flex items-start justify-between gap-4 md:gap-6 mb-5 md:mb-6">
+        <div className="min-w-0">
           <p className="eyebrow mb-2">
             {story.speaker.recorded}
           </p>
-          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-2">
+          <h3 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight mb-2">
             {story.title}
           </h3>
-          <p className="font-serif italic text-ink-900/65 dark:text-ink-50/65">
+          <p className="font-serif italic text-sm md:text-base text-ink-900/65 dark:text-ink-50/65">
             {story.speaker.name} · בת {story.speaker.age} · {story.speaker.relationship}
           </p>
         </div>
         <button
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? 'עצרו הקלטה' : 'נגנו הקלטה'}
-          className={`shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center border transition-all ${
+          className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center border transition-all ${
             playing
               ? 'bg-honey-500 border-honey-500 text-paper-50'
               : 'border-ink-900/30 dark:border-ink-50/30 hover:border-honey-500 hover:text-honey-500'
@@ -55,12 +55,12 @@ export default function StoryPlayer({ story, index = 0 }: { story: Story; index?
         <span>{story.durationLabel}</span>
       </div>
 
-      <blockquote className="font-serif text-lg md:text-xl leading-relaxed text-ink-900/90 dark:text-ink-50/90 mb-6">
-        <span className="text-honey-500 font-display text-3xl leading-none mr-1">״</span>
+      <blockquote className="font-serif text-base md:text-xl leading-relaxed text-ink-900/90 dark:text-ink-50/90 mb-5 md:mb-6">
+        <span className="text-honey-500 font-display text-2xl md:text-3xl leading-none mr-1">״</span>
         {story.excerptSnippet}
       </blockquote>
 
-      <p className="text-sm text-ink-900/55 dark:text-ink-50/55 border-t border-ink-900/10 dark:border-ink-50/10 pt-5">
+      <p className="text-[13px] md:text-sm text-ink-900/55 dark:text-ink-50/55 border-t border-ink-900/10 dark:border-ink-50/10 pt-4 md:pt-5">
         {story.context}
       </p>
     </article>

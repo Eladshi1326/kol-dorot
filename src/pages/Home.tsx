@@ -19,24 +19,24 @@ export default function Home() {
   return (
     <>
       {/* HERO — RTL split: text right, product mockup left */}
-      <section className="container-ed pt-10 md:pt-16 pb-20 md:pb-28 relative overflow-hidden">
-        <div className="grid md:grid-cols-[1.15fr_1fr] gap-12 md:gap-16 items-center">
+      <section className="container-ed pt-8 md:pt-16 pb-16 md:pb-28 relative overflow-hidden">
+        <div className="grid md:grid-cols-[1.15fr_1fr] gap-10 md:gap-16 items-center">
           <div>
-            <p className="eyebrow mb-6 animate-fade-in">
+            <p className="eyebrow mb-5 md:mb-6 animate-fade-in">
               {hero.eyebrow}
             </p>
-            <h1 className="font-display text-display-1 mb-8 animate-fade-up whitespace-pre-line">
+            <h1 className="font-display text-display-1 mb-6 md:mb-8 animate-fade-up whitespace-pre-line">
               {hero.headline}
             </h1>
             <p
-              className="font-serif text-xl md:text-2xl font-light text-ink-900/75 dark:text-ink-50/75 max-w-xl leading-snug mb-10 animate-fade-up"
+              className="font-serif text-lg md:text-2xl font-light text-ink-900/75 dark:text-ink-50/75 max-w-xl leading-snug mb-8 md:mb-10 animate-fade-up"
               style={{ animationDelay: '120ms', animationFillMode: 'both' }}
             >
               {hero.subline}
             </p>
 
             <div
-              className="flex flex-wrap items-center gap-5 animate-fade-up"
+              className="flex flex-wrap items-center gap-3 sm:gap-5 animate-fade-up"
               style={{ animationDelay: '240ms', animationFillMode: 'both' }}
             >
               <Link to="/how" className="btn-primary">
@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* SOCIAL PROOF STRIP — metric line */}
       <section className="container-ed py-10 md:py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center md:text-right">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center md:text-right">
           {[
             { metric: '2,147', label: 'משפחות מקליטות' },
             { metric: '18,340', label: 'סיפורים בארכיון' },
@@ -77,7 +77,7 @@ export default function Home() {
             { metric: '50 שנה', label: 'התחייבות לשמירה' },
           ].map((s, i) => (
             <div key={i} className="reveal" style={{ transitionDelay: `${i * 60}ms` }}>
-              <div className="font-display text-4xl md:text-5xl mb-2 tabular-nums">{s.metric}</div>
+              <div className="font-display text-3xl sm:text-4xl md:text-5xl mb-2 tabular-nums">{s.metric}</div>
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-900/55 dark:text-ink-50/55">
                 {s.label}
               </div>
@@ -89,8 +89,8 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* MANIFESTO — editorial prose block */}
-      <section className="container-ed py-20 md:py-32">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-20">
+      <section className="container-ed py-16 md:py-32">
+        <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
           <div className="md:sticky md:top-28 md:h-fit">
             <p className="eyebrow mb-4">{manifesto.eyebrow}</p>
             <h2 className="font-display text-display-2 leading-[1.05] whitespace-pre-line">
@@ -108,7 +108,7 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* THREE VALUE PROPS */}
-      <section className="container-ed py-20 md:py-28">
+      <section className="container-ed py-16 md:py-28">
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
           {valueProps.map((v, i) => (
             <div key={i} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
@@ -125,8 +125,8 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* FEATURE GRID */}
-      <section className="container-ed py-20 md:py-28">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-14 md:mb-20">
+      <section className="container-ed py-16 md:py-28">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-10 md:mb-20">
           <div>
             <p className="eyebrow mb-4">{features.eyebrow}</p>
             <h2 className="font-display text-display-2 leading-tight whitespace-pre-line">
@@ -160,8 +160,8 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* STORIES PREVIEW — one sample player */}
-      <section className="container-ed py-20 md:py-28">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-10 md:mb-14">
+      <section className="container-ed py-16 md:py-28">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-8 md:mb-14">
           <div>
             <p className="eyebrow mb-4">{sampleStories.eyebrow}</p>
             <h2 className="font-display text-display-3 leading-tight whitespace-pre-line">
@@ -183,13 +183,13 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* TESTIMONIALS */}
-      <section className="container-ed py-20 md:py-28">
-        <div className="max-w-4xl mx-auto text-center mb-14 md:mb-20">
+      <section className="container-ed py-16 md:py-28">
+        <div className="max-w-4xl mx-auto text-center mb-10 md:mb-20">
           <p className="eyebrow mb-4">{testimonials.eyebrow}</p>
           <h2 className="font-display text-display-2 leading-tight mb-5">
             {testimonials.headline}
           </h2>
-          <p className="font-serif italic text-xl text-ink-900/65 dark:text-ink-50/65">
+          <p className="font-serif italic text-base md:text-xl text-ink-900/65 dark:text-ink-50/65">
             {testimonials.subline}
           </p>
         </div>
@@ -198,10 +198,10 @@ export default function Home() {
           {testimonials.items.map((t, i) => (
             <figure
               key={i}
-              className="reveal border-r-2 border-honey-500 pr-6 md:pr-8"
+              className="reveal border-r-2 border-honey-500 pr-5 md:pr-8"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <blockquote className="font-serif text-lg md:text-xl leading-relaxed text-ink-900/90 dark:text-ink-50/90 mb-6">
+              <blockquote className="font-serif text-base md:text-xl leading-relaxed text-ink-900/90 dark:text-ink-50/90 mb-5 md:mb-6">
                 {t.quote}
               </blockquote>
               <figcaption className="flex items-center gap-4">
@@ -223,11 +223,11 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* PRICING */}
-      <section className="container-ed py-20 md:py-28">
-        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-20">
+      <section className="container-ed py-16 md:py-28" id="pricing">
+        <div className="max-w-3xl mx-auto text-center mb-10 md:mb-20">
           <p className="eyebrow mb-4">{pricing.eyebrow}</p>
           <h2 className="font-display text-display-2 mb-4">{pricing.headline}</h2>
-          <p className="font-serif italic text-xl text-ink-900/65 dark:text-ink-50/65">
+          <p className="font-serif italic text-base md:text-xl text-ink-900/65 dark:text-ink-50/65">
             {pricing.subline}
           </p>
         </div>
@@ -236,7 +236,7 @@ export default function Home() {
           {pricing.tiers.map((tier, i) => (
             <div
               key={tier.name}
-              className={`reveal p-8 md:p-10 flex flex-col ${
+              className={`reveal p-6 sm:p-8 md:p-10 flex flex-col ${
                 tier.highlighted
                   ? 'bg-ink-900 text-paper-50 dark:bg-paper-50 dark:text-ink-950 relative'
                   : 'card-surface'
@@ -252,8 +252,8 @@ export default function Home() {
               <p className={`text-sm mb-6 ${tier.highlighted ? 'text-paper-50/70 dark:text-ink-950/70' : 'text-ink-900/65 dark:text-ink-50/65'}`}>
                 {tier.description}
               </p>
-              <div className="mb-8">
-                <span className="font-display text-5xl">{tier.price}</span>
+              <div className="mb-6 md:mb-8">
+                <span className="font-display text-4xl md:text-5xl">{tier.price}</span>
                 {tier.pricePeriod && (
                   <span className={`mr-2 text-sm ${tier.highlighted ? 'text-paper-50/60 dark:text-ink-950/60' : 'text-ink-900/55 dark:text-ink-50/55'}`}>
                     {tier.pricePeriod}
@@ -285,8 +285,8 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* FAQ */}
-      <section className="container-ed py-20 md:py-28">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-20">
+      <section className="container-ed py-16 md:py-28">
+        <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
           <div className="md:sticky md:top-28 md:h-fit">
             <p className="eyebrow mb-4">{faq.eyebrow}</p>
             <h2 className="font-display text-display-2 leading-tight">{faq.headline}</h2>
@@ -300,16 +300,16 @@ export default function Home() {
       <div className="container-ed"><div className="hairline" /></div>
 
       {/* FINAL CTA */}
-      <section className="container-ed py-24 md:py-32">
+      <section className="container-ed py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="eyebrow mb-6">{finalCTA.eyebrow}</p>
-          <h2 className="font-display text-display-1 leading-[1.02] mb-8 whitespace-pre-line">
+          <p className="eyebrow mb-5 md:mb-6">{finalCTA.eyebrow}</p>
+          <h2 className="font-display text-display-1 leading-[1.05] mb-6 md:mb-8 whitespace-pre-line">
             {finalCTA.headline}
           </h2>
-          <p className="font-serif italic text-xl md:text-2xl text-ink-900/70 dark:text-ink-50/70 mb-12">
+          <p className="font-serif italic text-lg md:text-2xl text-ink-900/70 dark:text-ink-50/70 mb-8 md:mb-12">
             {finalCTA.subline}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
             <Link to="/how" className="btn-primary">
               {finalCTA.buttonPrimary}
             </Link>
@@ -336,7 +336,7 @@ function FAQList({ items }: { items: { q: string; a: string }[] }) {
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-6 py-6 text-right hover:text-honey-500 transition-colors"
             >
-              <span className="font-serif text-lg md:text-xl leading-tight">{it.q}</span>
+              <span className="font-serif text-base md:text-xl leading-tight">{it.q}</span>
               <span className={`shrink-0 w-6 h-6 flex items-center justify-center text-honey-500 transition-transform ${isOpen ? 'rotate-45' : ''}`}>
                 +
               </span>

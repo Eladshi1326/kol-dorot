@@ -6,6 +6,10 @@ import Home from './pages/Home'
 import HowItWorks from './pages/HowItWorks'
 import Stories from './pages/Stories'
 import About from './pages/About'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Accessibility from './pages/Accessibility'
+import Preservation from './pages/Preservation'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -43,6 +47,10 @@ export default function App() {
           <Route path="/how" element={<HowItWorks />} />
           <Route path="/stories" element={<Stories />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/preservation" element={<Preservation />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

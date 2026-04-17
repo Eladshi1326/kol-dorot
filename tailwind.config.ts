@@ -12,10 +12,10 @@ export default {
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       fontSize: {
-        'display-1': ['clamp(3.5rem, 7vw, 6.5rem)', { lineHeight: '0.96', letterSpacing: '-0.015em' }],
-        'display-2': ['clamp(2.75rem, 5.5vw, 5rem)', { lineHeight: '1.02', letterSpacing: '-0.012em' }],
-        'display-3': ['clamp(2rem, 4vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.008em' }],
-        'display-4': ['clamp(1.5rem, 2.8vw, 2.25rem)', { lineHeight: '1.2', letterSpacing: '-0.004em' }],
+        'display-1': ['clamp(2.5rem, 8vw, 6.5rem)', { lineHeight: '0.98', letterSpacing: '-0.015em' }],
+        'display-2': ['clamp(2rem, 6vw, 5rem)', { lineHeight: '1.04', letterSpacing: '-0.012em' }],
+        'display-3': ['clamp(1.65rem, 4.4vw, 3.25rem)', { lineHeight: '1.1', letterSpacing: '-0.008em' }],
+        'display-4': ['clamp(1.35rem, 3vw, 2.25rem)', { lineHeight: '1.2', letterSpacing: '-0.004em' }],
       },
       colors: {
         paper: {

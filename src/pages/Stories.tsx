@@ -6,15 +6,15 @@ export default function Stories() {
   return (
     <>
       {/* HERO */}
-      <section className="container-ed pt-16 md:pt-28 pb-14 md:pb-20 relative overflow-hidden">
-        <div className="absolute -top-32 -right-48 w-[620px] h-[620px] rounded-full bg-terra-500/8 dark:bg-terra-500/6 blur-3xl -z-10" />
+      <section className="container-ed pt-12 md:pt-28 pb-10 md:pb-20 relative overflow-hidden">
+        <div className="absolute -top-32 -right-48 w-[340px] h-[340px] md:w-[620px] md:h-[620px] rounded-full bg-terra-500/8 dark:bg-terra-500/6 blur-3xl -z-10" />
         <div className="max-w-3xl">
-          <p className="eyebrow mb-6 animate-fade-in">{sampleStories.eyebrow}</p>
-          <h1 className="font-display text-5xl md:text-7xl leading-[0.98] mb-8 whitespace-pre-line animate-fade-up">
+          <p className="eyebrow mb-5 md:mb-6 animate-fade-in">{sampleStories.eyebrow}</p>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1.02] mb-6 md:mb-8 whitespace-pre-line animate-fade-up">
             {sampleStories.headline}
           </h1>
           <p
-            className="font-serif text-xl md:text-2xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 animate-fade-up"
+            className="font-serif text-lg md:text-2xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 animate-fade-up"
             style={{ animationDelay: '140ms', animationFillMode: 'both' }}
           >
             {sampleStories.subline}
@@ -49,7 +49,7 @@ export default function Stories() {
         <div className="max-w-4xl mx-auto space-y-14 md:space-y-20">
           {sampleStories.items.map((story, i) => (
             <div key={story.title} className="relative">
-              <div className="absolute -top-6 right-0 md:-right-4 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-900/35 dark:text-ink-50/35">
+              <div className="mb-3 md:mb-0 md:absolute md:-top-6 md:right-0 lg:-right-4 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-ink-900/35 dark:text-ink-50/35">
                 הקלטה · {String(i + 1).padStart(2, '0')} מתוך {String(sampleStories.items.length).padStart(2, '0')}
               </div>
               <StoryPlayer story={story} index={i} />
@@ -67,14 +67,14 @@ export default function Stories() {
       <section className="container-ed py-20 md:py-28">
         <div className="max-w-2xl mx-auto text-center reveal">
           <p className="eyebrow mb-5">הערה קצרה</p>
-          <h2 className="font-display text-3xl md:text-5xl leading-[1.05] mb-8">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl leading-[1.1] mb-6 md:mb-8">
             אלה חמישה קולות.
             <br />
             <span className="font-serif italic font-normal text-ink-900/55 dark:text-ink-50/55">
               בבית שלכם יש עוד.
             </span>
           </h2>
-          <p className="font-serif text-lg md:text-xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 mb-10">
+          <p className="font-serif text-base md:text-xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 mb-8 md:mb-10">
             ההקלטות כאן מוצגות באישור המשפחות. הקשבנו שוב ושוב לפני שפרסמנו, כי הן לא שלנו —
             הן של אופיר, של תמר, של שלום, של ירית, של ליהי.
           </p>

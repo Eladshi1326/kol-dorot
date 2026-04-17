@@ -5,18 +5,18 @@ export default function About() {
   return (
     <>
       {/* HERO */}
-      <section className="container-ed pt-16 md:pt-28 pb-16 md:pb-24 relative overflow-hidden">
-        <div className="absolute -top-24 -left-40 w-[580px] h-[580px] rounded-full bg-sage-500/10 dark:bg-sage-500/6 blur-3xl -z-10" />
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+      <section className="container-ed pt-12 md:pt-28 pb-12 md:pb-24 relative overflow-hidden">
+        <div className="absolute -top-24 -left-40 w-[320px] h-[320px] md:w-[580px] md:h-[580px] rounded-full bg-sage-500/10 dark:bg-sage-500/6 blur-3xl -z-10" />
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-end">
           <div className="md:col-span-7">
-            <p className="eyebrow mb-6 animate-fade-in">{aboutPage.eyebrow}</p>
-            <h1 className="font-display text-5xl md:text-8xl leading-[0.95] mb-0 whitespace-pre-line animate-fade-up">
+            <p className="eyebrow mb-5 md:mb-6 animate-fade-in">{aboutPage.eyebrow}</p>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-8xl leading-[0.98] mb-0 whitespace-pre-line animate-fade-up">
               {aboutPage.headline}
             </h1>
           </div>
           <div className="md:col-span-5">
             <p
-              className="font-serif italic text-lg md:text-xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 border-r-2 border-honey-500 pr-6 animate-fade-up"
+              className="font-serif italic text-base md:text-xl leading-relaxed text-ink-900/70 dark:text-ink-50/70 border-r-2 border-honey-500 pr-5 md:pr-6 animate-fade-up"
               style={{ animationDelay: '160ms', animationFillMode: 'both' }}
             >
               {aboutPage.intro}
@@ -61,7 +61,7 @@ export default function About() {
             {aboutPage.paragraphs.map((p, i) => (
               <p
                 key={i}
-                className={`text-ink-900/85 dark:text-ink-50/85 ${i === 0 ? 'first-letter:font-display first-letter:text-6xl first-letter:float-right first-letter:ml-3 first-letter:mt-1 first-letter:text-honey-500 first-letter:leading-[0.9]' : ''}`}
+                className={`text-ink-900/85 dark:text-ink-50/85 ${i === 0 ? 'first-letter:font-display first-letter:text-4xl md:first-letter:text-6xl first-letter:float-right first-letter:ml-2 md:first-letter:ml-3 first-letter:mt-1 first-letter:text-honey-500 first-letter:leading-[0.9]' : ''}`}
               >
                 {p}
               </p>
@@ -78,12 +78,12 @@ export default function About() {
         <div className="container-ed">
           <div className="max-w-2xl mb-14 md:mb-20 reveal">
             <p className="eyebrow mb-4">הצוות</p>
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-[1.05] mb-5 md:mb-6">
               ארבעה אנשים,
               <br />
               <span className="font-serif italic font-normal text-ink-900/55 dark:text-ink-50/55">ולא יותר.</span>
             </h2>
-            <p className="font-serif text-lg leading-relaxed text-ink-900/65 dark:text-ink-50/65">
+            <p className="font-serif text-base md:text-lg leading-relaxed text-ink-900/65 dark:text-ink-50/65">
               אנחנו עובדים מבתים, מבית קפה בצפון תל אביב, ומפגישה של פעם בשבוע בה אנחנו מקליטים
               בעצמנו. זה עוזר לנו לזכור למה אנחנו כאן.
             </p>
@@ -134,7 +134,7 @@ export default function About() {
       <section className="container-ed pt-20 md:pt-28 pb-16 md:pb-20">
         <div className="max-w-3xl mb-12 md:mb-16 reveal">
           <p className="eyebrow mb-4">במה אנחנו מאמינים</p>
-          <h2 className="font-display text-4xl md:text-6xl leading-[1.02]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-[1.05]">
             חמישה דברים
             <br />
             <span className="font-serif italic font-normal text-ink-900/55 dark:text-ink-50/55">שלא נתפשר עליהם.</span>
@@ -152,9 +152,9 @@ export default function About() {
             <li key={v.n} className="border-t border-ink-900/10 dark:border-ink-50/10 pt-8 reveal" style={{ transitionDelay: `${i * 60}ms` }}>
               <div className="flex items-baseline gap-4 mb-3">
                 <span className="font-mono text-sm text-honey-500 tabular-nums">{v.n}</span>
-                <h3 className="font-display text-2xl md:text-3xl">{v.t}</h3>
+                <h3 className="font-display text-xl sm:text-2xl md:text-3xl leading-tight">{v.t}</h3>
               </div>
-              <p className="text-ink-900/70 dark:text-ink-50/70 leading-relaxed md:pr-8">{v.b}</p>
+              <p className="text-ink-900/70 dark:text-ink-50/70 leading-relaxed text-[15px] md:text-base md:pr-8">{v.b}</p>
             </li>
           ))}
         </ol>
@@ -162,10 +162,10 @@ export default function About() {
 
       {/* NEWSLETTER */}
       <section className="container-ed pb-24 md:pb-32">
-        <div className="card-surface p-8 md:p-14 rounded-3xl grid md:grid-cols-5 gap-10 items-center reveal">
+        <div className="card-surface p-6 sm:p-8 md:p-14 rounded-2xl md:rounded-3xl grid md:grid-cols-5 gap-8 md:gap-10 items-center reveal">
           <div className="md:col-span-3">
             <p className="eyebrow mb-3">{newsletter.eyebrow}</p>
-            <h3 className="font-display text-3xl md:text-4xl leading-tight mb-3">
+            <h3 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight mb-3">
               {newsletter.headline}
             </h3>
             <p className="font-serif text-ink-900/65 dark:text-ink-50/65 leading-relaxed">
@@ -174,7 +174,7 @@ export default function About() {
           </div>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="md:col-span-2 flex gap-3 items-stretch"
+            className="md:col-span-2 flex flex-col sm:flex-row gap-3 items-stretch"
           >
             <input
               type="email"
